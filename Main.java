@@ -1,5 +1,17 @@
+import java.awt.*;
+
+import java.util.Arrays;
+
 // This class can be called anything
 public class Main{
+
+
+    // private means only things in this class can access this
+    private static int add(int numberOne, int numberTwo){
+        return numberOne + numberTwo;
+    } 
+
+
 
     // Main entry point of Java Program but this name is important
     public static void main(String args[]){
@@ -75,7 +87,7 @@ public class Main{
         /*
          * Comparison Operators
          */
-        System.out.println("\n##Comparison Operators##");
+        System.out.println("\n## Comparison Operators##");
         System.out.println(10<10);
         System.out.println(10<=10);
         System.out.println(10>10);
@@ -86,7 +98,7 @@ public class Main{
         /*
          * Shorthand Reassignment
          */
-        System.out.println("\n##Shorthand Assignment##");
+        System.out.println("\n## Shorthand Assignment ##");
         int numberFive = 2;
         numberFive += 5;
         System.out.println(numberFive);
@@ -98,7 +110,7 @@ public class Main{
         /*
          * Strings
          */
-        System.out.println("\n## Strings");
+        System.out.println("\n## Strings ##");
         String name = "Nisarg";
         String code = "1";
         String brand = name + " " + code;
@@ -111,7 +123,112 @@ public class Main{
         System.out.println("".isBlank());
         System.out.println("  a  ".trim());
 
+        /*
+         * Reference Types and Objects
+         */
+        System.out.println("\n## Reference Types and Objects ##");
+        // Used for storing complex values e.g., coordinates
+        Point pointA = new Point(10,10);
+        System.out.println("pointA = " + pointA);
+        // Comes with these methods
+        pointA.move(10,12);
+        System.out.println("pointA = " + pointA);
+        // Difference between primitives and reference types is that value of primitive are stored in the stack but for objects they are allocated memory in the heap and referenced in the stack
         
+        /*
+         * Arrays
+         */
+        System.out.println("\n## Arrays ##");
+        // Specifies the number of values it can have
+        int[] numbers = new int[3];
+        numbers[0] = 1;
+        numbers[1] = 33;
+        numbers[2] = 6;
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(numbers.length);
 
+        // Arrays have fixed size
+
+        // Another way to create arrays and assign values
+        // Arrays can be any data type
+        int[] numbersTwo = {0, 5, 6, 7, 8, 9};
+        System.out.println("Before: " + Arrays.toString(numbersTwo));
+        numbersTwo[1] = 55;
+        System.out.println("After: " + Arrays.toString(numbersTwo));
+
+        /*
+         * Nulls and 0's in Arrays
+         */
+        System.out.println("\n## Nulls and 0's in Arrays ##");
+        // For primitive types, empty indexes are filled with 0
+        int[] numbersThree = new int[3];
+        numbersThree[0] = 11;
+        System.out.println(Arrays.toString(numbersThree));
+        // Can then change it using fill
+        Arrays.fill(numbersThree, -1);
+        numbersThree[2] = 11;
+        System.out.println(Arrays.toString(numbersThree));
+        
+        // For objects, it is filled with null
+        String[] names = new String[3];
+        names[0] = "Nisarg";
+        System.out.println(Arrays.toString(names));
+
+        /*
+         * Loops and Arrays
+         */
+        System.out.println("\n## Loops and Arrays ##");
+        // Don't print each item of an array individually
+        String[] namesTwo = {"James", "Nadia", "Sophia", "Alex", "Salah"};
+        for (int i = 0; i < namesTwo.length; i++) {
+            System.out.println(namesTwo[i]);
+        }
+
+        /*
+         * Conditional
+         */
+        System.out.println("\n## Conditional Statements ##");
+        if(true){
+            System.out.println("This runs when true");
+        }
+        else{
+            System.out.println("This runs when false");
+        }
+
+        /*
+         * Methods
+         */
+        System.out.println("\n## Methods ##");
+        /*
+         * When building methods need to specify:
+         * - Access Modifier
+         * - Optional Static
+         * - Return type
+         * - Name
+         * - Optional Parameters
+         * -Method Body
+         * Optional return value
+         */
+        System.out.println(add(5,10));
+
+        /*
+         * Classes and Objects
+         */
+        System.out.println("\n## Classes and Objects ##");
+        Cat cat = new Cat("Mike");
+        cat.meow();
+
+    }
+
+    
+}
+
+class Cat {
+    String name;
+    Cat(String catName){
+        this.name = catName;
+    }
+    void meow(){
+        System.out.println(name + ": meow ...");
     }
 }
